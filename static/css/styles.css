@@ -1,0 +1,226 @@
+:root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --primary: #1a202c;
+    --secondary: #e2e8f0;
+    --accent: #3182ce;
+    --muted: #718096;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+}
+
+.dark-mode {
+    --background: #1a202c;
+    --foreground: #ffffff;
+    --primary: #f7fafc;
+    --secondary: #2d3748;
+    --accent: #63b3ed;
+    --muted: #a0aec0;
+    --card-bg: #2d3748;
+    --card-border: #4a5568;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--foreground);
+    background-color: var(--background);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--card-border);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--foreground);
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--muted);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.timeline-content {
+    width: 45%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.timeline-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: white;
+    padding: 0.5rem;
+}
+
+.education-grid, .certifications-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.education-item, .certification-item, .project-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-logo, .certification-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#skills-container {
+    height: 400px;
+    position: relative;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--card-border);
+    border-radius: 0.25rem;
+    background-color: var(--card-bg);
+    color: var(--foreground);
+}
+
+button {
+    background-color: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .timeline-content {
+        width: 100%;
+        margin-left: 1rem;
+    }
+
+    .education-grid, .certifications-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
